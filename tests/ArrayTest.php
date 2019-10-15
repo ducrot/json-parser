@@ -58,7 +58,7 @@ class ArrayTest extends TestCase
     public function testGetStringUndefined(JsonArray $array)
     {
         $this->expectException(OutOfBoundsException::class);
-        $this->expectExceptionMessage('Expected string value at 99');
+        $this->expectExceptionMessage('Expected string value at [99]');
         $array->getString(99);
     }
 

@@ -15,17 +15,17 @@ abstract class AbstractJsonValue
     private $parent;
 
     /** @var string|int|null */
-    private $parentKey;
+    private $thisKey;
 
 
     /**
      * @param AbstractJsonValue|null $parent
-     * @param string|int|null $parentKey
+     * @param string|int|null $thisKey
      */
-    public function __construct($parent, $parentKey)
+    public function __construct($parent, $thisKey)
     {
         $this->parent = $parent;
-        $this->parentKey = $parentKey;
+        $this->thisKey = $thisKey;
     }
 
 
@@ -34,24 +34,17 @@ abstract class AbstractJsonValue
 
     protected function makePath($key = null): string
     {
-        if ($this->parent instanceof JsonArray) {
-            $path = sprintf('%s[%s]', $this->parent->makePath(), $this->parentKey);
-            if (!is_null($key)) {
-                $path .= sprintf('[%s]', $key);
+        $path = $this->parent ? $this->parent->makePath($this->thisKey) : '';
+        if (!is_null($key) && $this instanceof JsonArray) {
+            $path .= sprintf('[%s]', $key);
+        }
+        if (!is_null($key) && $this instanceof JsonObject) {
+            if (strlen($path) > 0) {
+                $path .= '.';
             }
-            return $path;
+            $path .= $key;
         }
-        if ($this->parent instanceof JsonObject) {
-            $path = sprintf('%s.%s', $this->parent->makePath(), $this->parentKey);
-            if (!is_null($key)) {
-                $path .= sprintf('.%s', $key);
-            }
-            return $path;
-        }
-        if (!is_null($key)) {
-            return strval($key);
-        }
-        return '';
+        return $path;
     }
 
 
