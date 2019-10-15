@@ -1,0 +1,29 @@
+{
+    "name": "timostamm/json-parser",
+    "description": "Simple API to read JSON objects. Not a serializer.",
+    "type": "library",
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "TS\\Json\\" : "src/"
+        }
+    },
+    "autoload-dev" : {
+        "psr-4" : {
+            "TS\\Json\\" : "tests/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Timo Stamm",
+            "email": "ts@timostamm.de"
+        }
+    ]
+}
