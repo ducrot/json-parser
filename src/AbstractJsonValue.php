@@ -48,6 +48,10 @@ abstract class AbstractJsonValue
     }
 
 
+    /**
+     * @param string|int $key
+     * @return mixed
+     */
     abstract protected function getAny($key);
 
 
@@ -228,8 +232,11 @@ abstract class AbstractJsonValue
     }
 
 
-    public
-    function getObject($key): JsonObject
+    /**
+     * @param int|string $key
+     * @return JsonObject
+     */
+    public function getObject($key): JsonObject
     {
         $arr = $this->expect($key, 'object');
         return new JsonObject($arr, $this, $key);
