@@ -3,11 +3,11 @@
     "description": "Simple API to read JSON objects. Not a serializer.",
     "type": "library",
     "require": {
-        "php": "^7.2",
+        "php": "^7.2 || ^8.0",
         "ext-json": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.5"
+        "phpunit/phpunit": "^8.5.23 || ^9"
     },
     "autoload" : {
         "psr-4" : {

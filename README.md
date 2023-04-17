@@ -1,6 +1,11 @@
 JSON parser
 ===========
 
+[![build](https://github.com/timostamm/json-parser/workflows/CI/badge.svg)](https://github.com/timostamm/json-parser/actions?query=workflow:"CI")
+![Packagist PHP Version](https://img.shields.io/packagist/dependency-v/timostamm/json-parser/php)
+[![GitHub tag](https://img.shields.io/github/tag/timostamm/json-parser?include_prereleases=&sort=semver&color=blue)](https://github.com/timostamm/json-parser/releases/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+
 Simple API to read JSON objects. Not a serializer.
 
 No serializer available? Tired of writing verbose code like below?
